@@ -4,10 +4,11 @@ interface RepoState {
   data: string []
 }
 
-const reducer = (state: RepoState, action: any) => {
+// Will Always Need To Match The Interface
+const reducer = (state: RepoState, action: any): RepoState => {
   switch (action.type) {
     case 'search_repo':
-      return { loading: true, error: null, data: []}
+      return { loading: true, error: null, data: [] }
     case 'search_repo_success':
       return { loading: false, error: null, data: action.payload }
     case 'search_repo_error':
