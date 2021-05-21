@@ -7,9 +7,15 @@ interface RepoState {
   data: string []
 }
 
+const initialState = {
+  loading: false,
+  error: null,
+  data: []
+}
+
 // Will Always Need To Match The Interface
 const reducer = (
-    state: RepoState, 
+    state: RepoState = initialState, 
     action: Action
 ): RepoState => {
   switch (action.type) {
