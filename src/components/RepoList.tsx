@@ -1,15 +1,14 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { actionCreators } from '../state'
+import { useActions } from '../hooks/useActions'
 
 const RepoList: React.FC = () => {
   const [term, setTerm] = useState('')
-  const dispatch = useDispatch()
+  const { searchRepo } = useActions();
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    dispatch(actionCreators.searchRepo(term))
+    searchRepo(term)
   }
 
   return (
